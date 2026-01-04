@@ -4,130 +4,191 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sea of Life Farm Produce</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #2e7d32;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #1b5e20;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      color: #2e7d32;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .product {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product h3 {
-      margin-top: 0;
-      color: #1b5e20;
-    }
-    footer {
-      background-color: #2e7d32;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f9fb;
+    color: #333;
+  }
+
+  header {
+    background: linear-gradient(135deg, #0aa6c0, #0b6e8a);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  nav {
+    background-color: #084f63;
+    padding: 10px;
+    text-align: center;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  h2 {
+    color: #2e7d32;
+  }
+
+  h3 {
+    color: #1b5e20;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .product {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+  }
+
+  .product:hover {
+    transform: translateY(-4px);
+  }
+
+  .product h3 {
+    margin-top: 0;
+    color: #1b5e20;
+  }
+
+  .price {
+    margin: 12px 0;
+    padding: 10px;
+    background: #e6f6fa;
+    border-left: 4px solid #0aa6c0;
+    font-size: 14px;
+  }
+
+  footer {
+    background-color: #0b6e8a;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 40px;
+  }
+
+  footer h2 {
+    color: #ffffff;
+  }
+
+  footer a {
+    color: white;
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Sea of Life Farm Produce</h1>
-    <p>Fresh • Natural • Trusted Farm Products</p>
-  </header>
+<header>
+  <img src="logo.png" alt="Sea of Life Farm Produce Logo"
+       style="width:200px;max-width:100%;margin-bottom:20px;">
+  <h1>Sea of Life Farm Produce</h1>
+  <p>Fresh • Natural • Trusted Farm Products</p>
+</header>
 
-  <nav>
-    <a href="#about">About Us</a>
-    <a href="#products">Products</a>
-    <a href="#customers">Our Customers</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#about">About Us</a>
+  <a href="#products">Products</a>
+  <a href="#customers">Our Customers</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      Sea of Life Farm Produce is a Ugandan-based farm produce supplier providing
-      high-quality, fresh, and carefully processed agricultural products.
-      We focus on cleanliness, proper handling, and reliable supply to meet
-      the needs of households, restaurants, and shops.
-    </p>
-  </section>
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    Sea of Life Farm Produce is a Ugandan-based farm produce supplier providing
+    high-quality, fresh, and carefully processed agricultural products.
+    We focus on cleanliness, proper handling, and reliable supply to meet
+    the needs of households, restaurants, and shops.
+  </p>
+</section>
 
-  <section id="products">
-    <h2>Our Products</h2>
+<section id="products">
+  <h2>Our Products</h2>
 
-    <h3 style="color:#1b5e20;">Crops & Farm Produce</h3>
-    <div class="products">
-      <div class="product">
-        <img src="beans.jpg" alt="Sorted Masavu Beans" style="width:100%; height:200px;object-fit:cover;border-radius:8px;">
-        <h3>Sorted Masavu Beans</h3>
-        <p>Clean, well-sorted Masavu beans locally grown and ready for cooking.</p>
-        <a href="https://wa.me/256767211632?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Sorted%20Masavu%20Beans" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">Order on WhatsApp</a>
-      </div>
-      <div class="product">
-        <img src="groundnuts.jpg" alt="Pounded Groundnuts" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
-        <h3>Pounded Groundnuts</h3>
-        <p>Freshly pounded groundnuts, perfect for sauce and traditional meals.</p>
-        <a href="https://wa.me/256767211632?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Pounded%20Groundnuts" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">Order on WhatsApp</a>
-      </div>
+  <h3 style="color:#1b5e20;">Crops & Farm Produce</h3>
+  <div class="products">
+
+    <div class="product">
+      <img src="beans.jpg" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <h3>Sorted Masavu Beans</h3>
+      <p>Clean, well-sorted Masavu beans locally grown and ready for cooking.</p>
+      <div class="price"><strong>Price:</strong> UGX 6,000 per kg</div>
+      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Sorted%20Masavu%20Beans%20at%20UGX%206,000%20per%20kg."
+      target="_blank"
+      style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
+      Order on WhatsApp</a>
     </div>
 
-    <h3 style="color:#1b5e20;margin-top:40px;">Livestock Products</h3>
-    <div class="products">
-      <div class="product">
-        <img src="milk.jpg" alt="Fresh Dairy Milk" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
-        <h3>Fresh Dairy Milk</h3>
-        <p>Pure, fresh dairy milk handled with care to maintain quality.</p>
-        <a href="https://wa.me/256767211632?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Fresh%20Dairy%20Milk" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">Order on WhatsApp</a>
-      </div>
-      <div class="product">
-        <img src="chicken.jpg" alt="Whole Broiler Chicken" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
-        <h3>Whole Broiler Chicken (Slaughtered)</h3>
-        <p>Clean, well-slaughtered broiler chicken ready for cooking.</p>
-        <a href="https://wa.me/256767211632?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Whole%20Broiler%20Chicken" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">Order on WhatsApp</a>
-      </div>
+    <div class="product">
+      <img src="groundnuts.jpg" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <h3>Pounded Groundnuts</h3>
+      <p>Freshly pounded groundnuts, perfect for sauce and traditional meals.</p>
+      <div class="price"><strong>Price:</strong> UGX 8,000 per kg</div>
+      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Pounded%20Groundnuts%20at%20UGX%208,000%20per%20kg."
+      target="_blank"
+      style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
+      Order on WhatsApp</a>
     </div>
 
-    <h3 style="color:#1b5e20;margin-top:40px;">Live Animals for Sale</h3>
-    <div id="live-animals" class="products"></div>
-    <p id="no-animals" style="font-style:italic;">No live animals currently available for sale.</p>
+  </div>
 
-  </section>
+  <h3 style="color:#1b5e20;margin-top:40px;">Livestock Products</h3>
+  <div class="products">
+
+    <div class="product">
+      <img src="milk.jpg" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <h3>Fresh Dairy Milk</h3>
+      <p>Pure, fresh dairy milk handled with care to maintain quality.</p>
+      <div class="price"><strong>Price:</strong> UGX 2,000 per litre</div>
+      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Fresh%20Dairy%20Milk%20at%20UGX%202,000%20per%20litre."
+      target="_blank"
+      style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
+      Order on WhatsApp</a>
+    </div>
+
+    <div class="product">
+      <img src="chicken.jpg" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <h3>Whole Broiler Chicken</h3>
+      <p>Clean, well-slaughtered broiler chicken ready for cooking.</p>
+      <div class="price">
+        <strong>Price:</strong> UGX 13,000 – 15,000 per bird<br>
+        <small>(1kg – 1.5kg)</small>
+      </div>
+      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Whole%20Broiler%20Chicken%20priced%20between%20UGX%2013,000%20and%2015,000."
+      target="_blank"
+      style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
+      Order on WhatsApp</a>
+    </div>
+
+  </div>
+
+  <h3 style="color:#1b5e20;margin-top:40px;">Live Animals for Sale</h3>
+  <div id="live-animals" class="products"></div>
+  <p id="no-animals" style="font-style:italic;">No live animals currently available for sale.</p>
+</section>
 
   <script>
     // ===== LIVE ANIMALS MANAGEMENT =====
@@ -156,16 +217,7 @@
       });
     }
   </script>
-
-  <section id="customers">
-    <h2>Who We Serve</h2>
-    <ul>
-      <li>Households</li>
-      <li>Restaurants</li>
-      <li>Retail Shops</li>
-    </ul>
-  </section>
-
+  
   <section id="delivery">
     <h2>Bulk Order Delivery Fee Calculator</h2>
     <p>
@@ -194,50 +246,75 @@
     <p id="deliveryResult" style="margin-top:20px;font-weight:bold;"></p>
   </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>
-      <strong>Location:</strong> Zirobwe, Luweero District, Uganda<br />
-      <strong>Phone / WhatsApp:</strong> +256 767 211 632<br />
-      <strong>Email:</strong> info@seaoflifefarmproduce.com
-    </p>
+  <section id="customers">
+    <h2>Who We Serve</h2>
+    <ul>
+      <li>Households</li>
+      <li>Restaurants</li>
+      <li>Retail Shops</li>
+    </ul>
   </section>
 
-  <script>
-    // ===== DELIVERY FEE CALCULATOR =====
-    const form = document.getElementById('deliveryForm');
-    const result = document.getElementById('deliveryResult');
+<section id="feedback">
+  <h2>Customer Feedback</h2>
+  <p>Here’s what some of our customers say about Sea of Life Farm Produce.</p>
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  <div class="products">
 
-      const orderType = document.getElementById('orderType').value;
-      const distance = Number(document.getElementById('distance').value);
-      const district = document.getElementById('district').value;
+    <div class="product">
+      <p>
+        “The Masavu beans were very clean and well sorted. Delivery was on time.
+        I will definitely order again.”
+      </p>
+      <strong>— Reedsfield Catering Services Ltd, Kampala</strong>
+    </div>
 
-      if (orderType === 'retail') {
-        result.textContent = 'Retail orders do not use distance-based delivery fees. Please contact us for arrangements.';
-        return;
-      }
+    <div class="product">
+      <p>
+        “Fresh milk and good quality chicken. Very reliable supplier for our restaurant.”
+      </p>
+      <strong>— Restaurant owner, Wakiso</strong>
+    </div>
 
-      if (!distance || distance <= 0) {
-        result.textContent = 'Please enter a valid distance in kilometers.';
-        return;
-      }
+    <div class="product">
+      <p>
+        “Professional handling and good communication on WhatsApp. Highly recommended.”
+      </p>
+      <strong>— Retail shop, Luweero</strong>
+    </div>
 
-      const ratePerKm = 350; // UGX
-      const fee = distance * ratePerKm;
+  </div>
 
-      result.textContent = `Bulk order delivery fee to ${district || 'your location'} is approximately UGX ${fee.toLocaleString()} (${distance} km × UGX 350).`;
-    });
-  </script>
+  <div style="text-align:center;margin-top:30px;">
+    <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20leave%20feedback%20about%20your%20products%20and%20service."
+       target="_blank"
+       style="display:inline-block;padding:12px 20px;background:#25D366;color:white;text-decoration:none;border-radius:6px;font-weight:bold;">
+      Leave Feedback on WhatsApp
+    </a>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Sea of Life Farm Produce. All rights reserved.</p>
-  </footer>
+<footer>
+  <section id="contact">
+  <h2>Contact Us</h2>
+  <p>
+    <strong>Location:</strong> Zirobwe, Luweero District, Uganda<br>
+    <strong>Phone / WhatsApp:</strong> +256 742 319 650<br>
+    <strong>Email:</strong> seaoflife@gmail.com
+  </p>
+
+  <a href="https://wa.me/256742319650"
+     target="_blank"
+     style="display:inline-block;margin-top:15px;padding:12px 18px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
+    Chat with us on WhatsApp
+  </a>
+</section>
+  <p>&copy; 2025 Sea of Life Farm Produce. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
+
 
 
 
