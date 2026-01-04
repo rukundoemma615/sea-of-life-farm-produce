@@ -324,18 +324,16 @@
 </section>
   <p>&copy; 2025 Sea of Life Farm Produce. All rights reserved.</p>
 </footer>
+  
 <script>
   document.getElementById('deliveryForm').addEventListener('submit', function(event) {
-    // Prevent the page from refreshing on submit
     event.preventDefault();
 
-    // Get input values
     const orderType = document.getElementById('orderType').value;
     const distance = parseFloat(document.getElementById('distance').value);
     const resultDisplay = document.getElementById('deliveryResult');
     const ratePerKm = 200;
 
-    // Logic for calculation
     if (orderType === 'retail') {
       resultDisplay.innerHTML = "Retail orders have no distance-based delivery fee.";
       resultDisplay.style.color = "#2e7d32";
@@ -345,9 +343,15 @@
         resultDisplay.style.color = "red";
       } else {
         const totalFee = distance * ratePerKm;
-        // Format number with commas for Ugandan Shillings
         const formattedFee = totalFee.toLocaleString(); 
-        resultDisplay.innerHTML = `Total Delivery Fee: ${formattedFee} UGX`;
+        
+        // Updated output to show the rate
+        resultDisplay.innerHTML = `
+          Total Delivery Fee: ${formattedFee} UGX<br>
+          <span style="font-size: 0.9em; font-weight: normal; color: #555;">
+            (Rate applied: ${ratePerKm} UGX per km)
+          </span>
+        `;
         resultDisplay.style.color = "#000";
       }
     } else {
@@ -356,8 +360,10 @@
     }
   });
 </script>
+
 </body>
 </html>
+
 
 
 
