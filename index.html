@@ -149,7 +149,7 @@
       <h3>Sorted Masavu Beans</h3>
       <p>Clean, well-sorted Masavu beans locally grown and ready for cooking.</p>
       <div class="price"><strong>Price:</strong> UGX 6,000 per kg</div>
-      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Sorted%20Masavu%20Beans%20at%20UGX%206,000%20per%20kg."
+      <a href="#delivery" onclick="setProduct('Sorted Masavu Beans')"
       target="_blank"
       style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
       Order on WhatsApp</a>
@@ -160,7 +160,7 @@
       <h3>Pounded Groundnuts</h3>
       <p>Freshly pounded groundnuts, perfect for sauce and traditional meals.</p>
       <div class="price"><strong>Price:</strong> UGX 8,000 per kg</div>
-      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Pounded%20Groundnuts%20at%20UGX%208,000%20per%20kg."
+      <a href="#delivery" onclick="setProduct('Freshly Pounded Groundnuts')"
       target="_blank"
       style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
       Order on WhatsApp</a>
@@ -176,7 +176,7 @@
       <h3>Fresh Dairy Milk</h3>
       <p>Pure, fresh dairy milk handled with care to maintain quality.</p>
       <div class="price"><strong>Price:</strong> UGX 2,000 per litre</div>
-      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Fresh%20Dairy%20Milk%20at%20UGX%202,000%20per%20litre."
+      <a href="#delivery" onclick="setProduct('Milk')"
       target="_blank"
       style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
       Order on WhatsApp</a>
@@ -190,7 +190,7 @@
         <strong>Price:</strong> UGX 13,000 – 15,000 per bird<br>
         <small>(1kg – 1.5kg)</small>
       </div>
-      <a href="https://wa.me/256742319650?text=Hello%20Sea%20of%20Life%20Farm%20Produce,%20I%20would%20like%20to%20order%20Whole%20Broiler%20Chicken%20priced%20between%20UGX%2013,000%20and%2015,000."
+      <a href="#delivery" onclick="setProduct('Chicken')"
       target="_blank"
       style="display:inline-block;margin-top:10px;padding:10px 15px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
       Order on WhatsApp</a>
@@ -284,9 +284,9 @@
 
     <div class="product">
       <p>
-        “The Chicken where slaughtered well and cleaned beyond our expectations. Truly a commendable job. We hope to work with you again.”
+        “Fresh milk and good quality chicken. Very reliable supplier for our restaurant.”
       </p>
-      <strong>— King Jesus Church, Busega</strong>
+      <strong>— Restaurant owner, Wakiso</strong>
     </div>
 
     <div class="product">
@@ -313,7 +313,7 @@
   <p>
     <strong>Location:</strong> Zirobwe, Luweero District, Uganda<br>
     <strong>Phone / WhatsApp:</strong> +256 742 319 650<br>
-    <strong>Email:</strong> seaoflife@gmail.com OR rukundoemma615@gmail.com
+    <strong>Email:</strong> seaoflife@gmail.com OR rukundemma615@gmail.com
   </p>
 
   <a href="https://wa.me/256742319650"
@@ -324,19 +324,34 @@
 </section>
   <p>&copy; 2025 Sea of Life Farm Produce. All rights reserved.</p>
 </footer>
-  
+
 <script>
+  // Variable to store the selected product
+  let selectedProduct = "Farm Produce"; 
+
+  // Function to capture product name when button is clicked
+  function setProduct(name) {
+    selectedProduct = name;
+  }
+
   document.getElementById('deliveryForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const orderType = document.getElementById('orderType').value;
     const distance = parseFloat(document.getElementById('distance').value);
+    const district = document.getElementById('district').value || "unspecified district";
     const resultDisplay = document.getElementById('deliveryResult');
-    const ratePerKm = 200;
+    const ratePerKm = 350; 
+    const whatsappNumber = "256742319650";
 
     if (orderType === 'retail') {
-      resultDisplay.innerHTML = "Retail orders have no distance-based delivery fee.";
+      // Logic: Retail order with product name
+      const retailMsg = encodeURIComponent(`Hello Sea of Life Farm Produce, I would like to place a retail order for ${selectedProduct}.`);
+      window.open(`https://wa.me/${whatsappNumber}?text=${retailMsg}`, '_blank');
+      
+      resultDisplay.innerHTML = `Redirecting to WhatsApp for ${selectedProduct}...`;
       resultDisplay.style.color = "#2e7d32";
+
     } else if (orderType === 'bulk') {
       if (isNaN(distance) || distance <= 0) {
         resultDisplay.innerHTML = "Please enter a valid distance in kilometers.";
@@ -345,12 +360,21 @@
         const totalFee = distance * ratePerKm;
         const formattedFee = totalFee.toLocaleString(); 
         
-        // Updated output to show the rate
+        // Prepare the WhatsApp message with Product, District, and Fee
+        const bulkMsg = encodeURIComponent(`Hello Sea of Life Farm Produce, I want to place a Bulk Order for ${selectedProduct}.\n\nLocation: ${district}\nDistance: ${distance}km\nDelivery Fee: ${formattedFee} UGX.`);
+
+        // Display results + "Place Order" button
         resultDisplay.innerHTML = `
-          Total Delivery Fee: ${formattedFee} UGX<br>
+          <strong>Order for:</strong> ${selectedProduct}<br>
+          <strong>Total Delivery Fee:</strong> ${formattedFee} UGX<br>
           <span style="font-size: 0.9em; font-weight: normal; color: #555;">
             (Rate applied: ${ratePerKm} UGX per km)
-          </span>
+          </span><br><br>
+          <a href="https://wa.me/${whatsappNumber}?text=${bulkMsg}" 
+             target="_blank" 
+             style="display:inline-block;padding:12px 20px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
+             Place Order on WhatsApp
+          </a>
         `;
         resultDisplay.style.color = "#000";
       }
@@ -360,9 +384,10 @@
     }
   });
 </script>
-
 </body>
 </html>
+
+
 
 
 
