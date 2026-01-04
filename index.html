@@ -324,10 +324,8 @@
 </footer>
 
 <script>
-  // Variable to store the selected product
   let selectedProduct = "Farm Produce"; 
 
-  // Function to capture product name when button is clicked
   function setProduct(name) {
     selectedProduct = name;
   }
@@ -339,11 +337,10 @@
     const distance = parseFloat(document.getElementById('distance').value);
     const district = document.getElementById('district').value || "unspecified district";
     const resultDisplay = document.getElementById('deliveryResult');
-    const ratePerKm = 200; 
+    const ratePerKm = 200; // Kept at your 200 UGX rate
     const whatsappNumber = "256742319650";
 
     if (orderType === 'retail') {
-      // Logic: Retail order with product name
       const retailMsg = encodeURIComponent(`Hello Sea of Life Farm Produce, I would like to place a retail order for ${selectedProduct}.`);
       window.open(`https://wa.me/${whatsappNumber}?text=${retailMsg}`, '_blank');
       
@@ -358,32 +355,38 @@
         const totalFee = distance * ratePerKm;
         const formattedFee = totalFee.toLocaleString(); 
         
-        // Prepare the WhatsApp message with Product, District, and Fee
         const bulkMsg = encodeURIComponent(`Hello Sea of Life Farm Produce, I want to place a Bulk Order for ${selectedProduct}.\n\nLocation: ${district}\nDistance: ${distance}km\nDelivery Fee: ${formattedFee} UGX.`);
 
-        // Display results + "Place Order" button
         resultDisplay.innerHTML = `
-          <strong>Order for:</strong> ${selectedProduct}<br>
-          <strong>Total Delivery Fee:</strong> ${formattedFee} UGX<br>
-          <span style="font-size: 0.9em; font-weight: normal; color: #555;">
-            (Rate applied: ${ratePerKm} UGX per km)
-          </span><br><br>
-          <a href="https://wa.me/${whatsappNumber}?text=${bulkMsg}" 
-             target="_blank" 
-             style="display:inline-block;padding:12px 20px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">
-             Place Order on WhatsApp
-          </a>
+          <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+            <strong>Order for:</strong> ${selectedProduct}<br>
+            <strong>Total Delivery Fee:</strong> ${formattedFee} UGX<br>
+            <span style="font-size: 0.9em; font-weight: normal; color: #555;">
+              (Rate applied: ${ratePerKm} UGX per km)
+            </span><br><br>
+            
+            <a href="https://wa.me/${whatsappNumber}?text=${bulkMsg}" 
+               target="_blank" 
+               style="display:inline-block;padding:12px 20px;background:#25D366;color:white;text-decoration:none;border-radius:5px;font-weight:bold;margin-right:10px;">
+               Place Order on WhatsApp
+            </a>
+
+            <div style="margin-top: 15px;">
+              <a href="#products" style="color: #0b6e8a; text-decoration: underline; font-size: 0.9em;">
+                &larr; Back to Products (Change Item)
+              </a>
+            </div>
+          </div>
         `;
         resultDisplay.style.color = "#000";
       }
-    } else {
-      resultDisplay.innerHTML = "Please select an order type.";
-      resultDisplay.style.color = "red";
     }
   });
 </script>
+  
 </body>
 </html>
+
 
 
 
